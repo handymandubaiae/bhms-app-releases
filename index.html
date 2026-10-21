@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#FFFFFF">
+<title>BHMS Manager</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<section class="login" id="screen-login" hidden>
+  <div class="login-card">
+    <div class="logo-mark">B</div>
+    <h1>BHMS Manager</h1>
+    <p class="muted">Quotations, invoices, jobs and accounts for Best Home Fixes.</p>
+    <form id="loginForm" novalidate>
+      <label>Email<input id="l-email" type="email" inputmode="email" autocomplete="username"></label>
+      <label>Password<input id="l-pass" type="password" autocomplete="current-password"></label>
+      <p class="err" id="l-err" hidden></p>
+      <button class="btn primary block" id="l-btn">Log in</button>
+    </form>
+    <button class="linkbtn" id="l-forgot" type="button">Forgot password?</button>
+    <p class="muted small">The first login needs internet. After that the app also works offline.</p>
+  </div>
+</section>
+
+<!-- LOADING -->
+<section class="login" id="screen-loading"><div class="logo-mark">B</div><p class="muted">Loading…</p></section>
+
+<!-- APP -->
+<div class="shell" id="screen-app" hidden>
+  <aside class="sidebar" id="sidebar">
+    <div class="side-brand"><div class="logo-mark sm">B</div><div><b id="sideName">Best Home Fixes</b><span>BHMS Manager</span></div></div>
+    <button class="btn primary block" id="sideNew">+ New</button>
+    <nav id="sideNav"></nav>
+  </aside>
+  <div class="main-col">
+    <header class="topbar" id="topbar">
+      <div><button class="iconbtn" id="tbBack" aria-label="Back" hidden><svg class="i" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button></div>
+      <h1 id="tbTitle">Dashboard</h1>
+      <div class="tbright"><span class="syncdot" id="syncDot" title="Sync status"></span><div class="tb-actions" id="tbActions"></div></div>
+    </header>
+    <main id="view" class="view"></main>
+  </div>
+  <nav class="bottomnav" id="bottomNav"></nav>
+</div>
+
+<div class="sheet-wrap" id="sheetWrap" hidden><div class="sheet" id="sheet" role="dialog" aria-modal="true"></div></div>
+<div class="toast" id="toast" hidden></div>
+<input type="file" id="fileInput" hidden>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
